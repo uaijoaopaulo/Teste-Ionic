@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProcuraServicosWebApi.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avaliacao" EntityType="ProcuraServicosWebApi.Model.Avaliacao" />
+    <EntitySet Name="AvaliacaoItem" EntityType="ProcuraServicosWebApi.Model.AvaliacaoItem" />
+    <EntitySet Name="Categoria" EntityType="ProcuraServicosWebApi.Model.Categoria" />
+    <EntitySet Name="Conta" EntityType="ProcuraServicosWebApi.Model.Conta" />
+    <EntitySet Name="Endereco" EntityType="ProcuraServicosWebApi.Model.Endereco" />
+    <EntitySet Name="ItemAvaliacaoCategoria" EntityType="ProcuraServicosWebApi.Model.ItemAvaliacaoCategoria" />
+    <EntitySet Name="PF" EntityType="ProcuraServicosWebApi.Model.PF" />
+    <EntitySet Name="PJ" EntityType="ProcuraServicosWebApi.Model.PJ" />
+    <EntitySet Name="Promocao" EntityType="ProcuraServicosWebApi.Model.Promocao" />
+    <EntitySet Name="RecomendacaoUsuario" EntityType="ProcuraServicosWebApi.Model.RecomendacaoUsuario" />
+    <EntitySet Name="Servico_Categoria" EntityType="ProcuraServicosWebApi.Model.Servico_Categoria" />
+    <EntitySet Name="Telefone" EntityType="ProcuraServicosWebApi.Model.Telefone" />
+    <EntitySet Name="Usuario" EntityType="ProcuraServicosWebApi.Model.Usuario" />
+    <AssociationSet Name="FK_Avaliacao_AvalicacaoItem" Association="ProcuraServicosWebApi.Model.FK_Avaliacao_AvalicacaoItem">
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+      <End Role="Avaliacao" EntitySet="Avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoItem_ItemAvaliacaoCategoria" Association="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_ItemAvaliacaoCategoria">
+      <End Role="ItemAvaliacaoCategoria" EntitySet="ItemAvaliacaoCategoria" />
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoItem_Usuario" Association="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemavaliacao_Categoria" Association="ProcuraServicosWebApi.Model.FK_itemavaliacao_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="ItemAvaliacaoCategoria" EntitySet="ItemAvaliacaoCategoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Categoria_Categoria" Association="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Servico_Categoria" EntitySet="Servico_Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_Conta" Association="ProcuraServicosWebApi.Model.FK_Endereco_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PF_Conta" Association="ProcuraServicosWebApi.Model.FK_PF_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="PF" EntitySet="PF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PJ_Conta" Association="ProcuraServicosWebApi.Model.FK_PJ_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="PJ" EntitySet="PJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefone_Conta" Association="ProcuraServicosWebApi.Model.FK_Telefone_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Telefone" EntitySet="Telefone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Conta" Association="ProcuraServicosWebApi.Model.FK_Usuario_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecomedacaoUsuario_Usuario" Association="ProcuraServicosWebApi.Model.FK_RecomedacaoUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="RecomendacaoUsuario" EntitySet="RecomendacaoUsuario" />
+    </AssociationSet>
+    <EntitySet Name="Servico" EntityType="ProcuraServicosWebApi.Model.Servico" />
+    <AssociationSet Name="FK_Avaliacao_Servico" Association="ProcuraServicosWebApi.Model.FK_Avaliacao_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Avaliacao" EntitySet="Avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Servico" Association="ProcuraServicosWebApi.Model.FK_Table_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Promocao" EntitySet="Promocao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Categoria_Servico" Association="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Servico_Categoria" EntitySet="Servico_Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Usuario" Association="ProcuraServicosWebApi.Model.FK_Servico_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Servico" EntitySet="Servico" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Avaliacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_avaliacaoitem" Type="Int32" Nullable="false" />
+    <Property Name="id_servico" Type="Int32" Nullable="false" />
+    <Property Name="descricao" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AvaliacaoItem" Relationship="ProcuraServicosWebApi.Model.FK_Avaliacao_AvalicacaoItem" FromRole="Avaliacao" ToRole="AvaliacaoItem" />
+    <NavigationProperty Name="Servico" Relationship="ProcuraServicosWebApi.Model.FK_Avaliacao_Servico" FromRole="Avaliacao" ToRole="Servico" />
+  </EntityType>
+  <EntityType Name="AvaliacaoItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_itemavaliacaocategoria" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="nota" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Avaliacao" Relationship="ProcuraServicosWebApi.Model.FK_Avaliacao_AvalicacaoItem" FromRole="AvaliacaoItem" ToRole="Avaliacao" />
+    <NavigationProperty Name="ItemAvaliacaoCategoria" Relationship="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_ItemAvaliacaoCategoria" FromRole="AvaliacaoItem" ToRole="ItemAvaliacaoCategoria" />
+    <NavigationProperty Name="Usuario" Relationship="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_Usuario" FromRole="AvaliacaoItem" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ItemAvaliacaoCategoria" Relationship="ProcuraServicosWebApi.Model.FK_itemavaliacao_Categoria" FromRole="Categoria" ToRole="ItemAvaliacaoCategoria" />
+    <NavigationProperty Name="Servico_Categoria" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Categoria" FromRole="Categoria" ToRole="Servico_Categoria" />
+  </EntityType>
+  <EntityType Name="Conta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Endereco" Relationship="ProcuraServicosWebApi.Model.FK_Endereco_Conta" FromRole="Conta" ToRole="Endereco" />
+    <NavigationProperty Name="PF" Relationship="ProcuraServicosWebApi.Model.FK_PF_Conta" FromRole="Conta" ToRole="PF" />
+    <NavigationProperty Name="PJ" Relationship="ProcuraServicosWebApi.Model.FK_PJ_Conta" FromRole="Conta" ToRole="PJ" />
+    <NavigationProperty Name="Telefone" Relationship="ProcuraServicosWebApi.Model.FK_Telefone_Conta" FromRole="Conta" ToRole="Telefone" />
+    <NavigationProperty Name="Usuario" Relationship="ProcuraServicosWebApi.Model.FK_Usuario_Conta" FromRole="Conta" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_conta" Type="Int32" Nullable="false" />
+    <Property Name="rua" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Conta" Relationship="ProcuraServicosWebApi.Model.FK_Endereco_Conta" FromRole="Endereco" ToRole="Conta" />
+  </EntityType>
+  <EntityType Name="ItemAvaliacaoCategoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_categoria" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AvaliacaoItem" Relationship="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_ItemAvaliacaoCategoria" FromRole="ItemAvaliacaoCategoria" ToRole="AvaliacaoItem" />
+    <NavigationProperty Name="Categoria" Relationship="ProcuraServicosWebApi.Model.FK_itemavaliacao_Categoria" FromRole="ItemAvaliacaoCategoria" ToRole="Categoria" />
+  </EntityType>
+  <EntityType Name="PF">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="cpf" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Conta" Relationship="ProcuraServicosWebApi.Model.FK_PF_Conta" FromRole="PF" ToRole="Conta" />
+  </EntityType>
+  <EntityType Name="PJ">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="cnpj" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="razaosocial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoempresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Conta" Relationship="ProcuraServicosWebApi.Model.FK_PJ_Conta" FromRole="PJ" ToRole="Conta" />
+  </EntityType>
+  <EntityType Name="Promocao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_servico" Type="Int32" Nullable="false" />
+    <Property Name="datainicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datafim" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="descricao" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Servico" Relationship="ProcuraServicosWebApi.Model.FK_Table_Servico" FromRole="Promocao" ToRole="Servico" />
+  </EntityType>
+  <EntityType Name="RecomendacaoUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comentario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nota" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="ProcuraServicosWebApi.Model.FK_RecomedacaoUsuario_Usuario" FromRole="RecomendacaoUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Servico_Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_servico" Type="Int32" Nullable="false" />
+    <Property Name="id_categoria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categoria" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Categoria" FromRole="Servico_Categoria" ToRole="Categoria" />
+    <NavigationProperty Name="Servico" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Servico" FromRole="Servico_Categoria" ToRole="Servico" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_conta" Type="Int32" Nullable="false" />
+    <Property Name="numero" Type="Int32" Nullable="false" />
+    <Property Name="tiponumero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Conta" Relationship="ProcuraServicosWebApi.Model.FK_Telefone_Conta" FromRole="Telefone" ToRole="Conta" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipousuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nickname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AvaliacaoItem" Relationship="ProcuraServicosWebApi.Model.FK_AvaliacaoItem_Usuario" FromRole="Usuario" ToRole="AvaliacaoItem" />
+    <NavigationProperty Name="Conta" Relationship="ProcuraServicosWebApi.Model.FK_Usuario_Conta" FromRole="Usuario" ToRole="Conta" />
+    <NavigationProperty Name="RecomendacaoUsuario" Relationship="ProcuraServicosWebApi.Model.FK_RecomedacaoUsuario_Usuario" FromRole="Usuario" ToRole="RecomendacaoUsuario" />
+    <NavigationProperty Name="Servico" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Usuario" FromRole="Usuario" ToRole="Servico" />
+  </EntityType>
+  <Association Name="FK_Avaliacao_AvalicacaoItem">
+    <End Type="ProcuraServicosWebApi.Model.AvaliacaoItem" Role="AvaliacaoItem" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Avaliacao" Role="Avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AvaliacaoItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avaliacao">
+        <PropertyRef Name="id_avaliacaoitem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoItem_ItemAvaliacaoCategoria">
+    <End Type="ProcuraServicosWebApi.Model.ItemAvaliacaoCategoria" Role="ItemAvaliacaoCategoria" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.AvaliacaoItem" Role="AvaliacaoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemAvaliacaoCategoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AvaliacaoItem">
+        <PropertyRef Name="id_itemavaliacaocategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoItem_Usuario">
+    <End Type="ProcuraServicosWebApi.Model.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.AvaliacaoItem" Role="AvaliacaoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AvaliacaoItem">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemavaliacao_Categoria">
+    <End Type="ProcuraServicosWebApi.Model.Categoria" Role="Categoria" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.ItemAvaliacaoCategoria" Role="ItemAvaliacaoCategoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ItemAvaliacaoCategoria">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Categoria_Categoria">
+    <End Type="ProcuraServicosWebApi.Model.Categoria" Role="Categoria" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Servico_Categoria" Role="Servico_Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Servico_Categoria">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_Conta">
+    <End Type="ProcuraServicosWebApi.Model.Conta" Role="Conta" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Endereco" Role="Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="id_conta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PF_Conta">
+    <End Type="ProcuraServicosWebApi.Model.Conta" Role="Conta" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.PF" Role="PF" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PF">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PJ_Conta">
+    <End Type="ProcuraServicosWebApi.Model.Conta" Role="Conta" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.PJ" Role="PJ" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PJ">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefone_Conta">
+    <End Type="ProcuraServicosWebApi.Model.Conta" Role="Conta" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Telefone" Role="Telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="id_conta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Conta">
+    <End Type="ProcuraServicosWebApi.Model.Conta" Role="Conta" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecomedacaoUsuario_Usuario">
+    <End Type="ProcuraServicosWebApi.Model.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.RecomendacaoUsuario" Role="RecomendacaoUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RecomendacaoUsuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Servico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="localizacao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="latitude" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Avaliacao" Relationship="ProcuraServicosWebApi.Model.FK_Avaliacao_Servico" FromRole="Servico" ToRole="Avaliacao" />
+    <NavigationProperty Name="Promocao" Relationship="ProcuraServicosWebApi.Model.FK_Table_Servico" FromRole="Servico" ToRole="Promocao" />
+    <NavigationProperty Name="Servico_Categoria" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Categoria_Servico" FromRole="Servico" ToRole="Servico_Categoria" />
+    <NavigationProperty Name="Usuario" Relationship="ProcuraServicosWebApi.Model.FK_Servico_Usuario" FromRole="Servico" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Avaliacao_Servico">
+    <End Type="ProcuraServicosWebApi.Model.Servico" Role="Servico" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Avaliacao" Role="Avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avaliacao">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Servico">
+    <End Type="ProcuraServicosWebApi.Model.Servico" Role="Servico" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Promocao" Role="Promocao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Promocao">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Categoria_Servico">
+    <End Type="ProcuraServicosWebApi.Model.Servico" Role="Servico" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Servico_Categoria" Role="Servico_Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Servico_Categoria">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Usuario">
+    <End Type="ProcuraServicosWebApi.Model.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="ProcuraServicosWebApi.Model.Servico" Role="Servico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Servico">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

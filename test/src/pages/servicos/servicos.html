@@ -1,0 +1,33 @@
+<!--
+  Generated template for the ServicosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Serviços</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="max-width:700px; margin: 0 auto">
+      <ion-card *ngFor="let servico of servicos" (click)="VisualizaServico(servico)">
+        <ion-card-content >
+          <ion-card-title>
+            {{servico.nome}}
+          </ion-card-title>
+          <h6 style="color:green">{{servico.localizacao}}</h6>
+          <h5>
+            {{servico.descricao}}
+          </h5>
+        </ion-card-content>
+      </ion-card>
+  </div>
+</ion-content>

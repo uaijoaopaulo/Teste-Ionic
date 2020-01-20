@@ -1,0 +1,33 @@
+<!--
+  Generated template for the RecuperarsenhaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recuperar Senha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="max-width: 500px; margin:auto;">
+    <div style="text-align:center">
+      <img src="http://icons-for-free.com/free-icons/png/512/1174949.png" style="width:50%; max-width: 180px;">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Usuario ou Email</ion-label>
+          <ion-input [(ngModel)]="data" type="text"></ion-input>
+        </ion-item>
+        <br>
+      </ion-list>
+
+      <div padding>
+        <button ion-button outline (click)="enviaEmail()">Enviar Email</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

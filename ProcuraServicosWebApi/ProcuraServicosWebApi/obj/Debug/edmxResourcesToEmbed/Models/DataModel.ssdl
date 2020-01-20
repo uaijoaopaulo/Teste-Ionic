@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProcuraServicosWebApi.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Avaliacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_avaliacaoitem" Type="int" Nullable="false" />
+    <Property Name="id_servico" Type="int" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AvaliacaoItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_itemavaliacaocategoria" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="nota" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_conta" Type="int" Nullable="false" />
+    <Property Name="rua" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bairro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cidade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cep" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemAvaliacaoCategoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_categoria" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PF">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="cpf" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PJ">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="cnpj" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="razaosocial" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoempresa" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Promocao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_servico" Type="int" Nullable="false" />
+    <Property Name="datainicio" Type="datetime" Nullable="false" />
+    <Property Name="datafim" Type="datetime" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecomendacaoUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="comentario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nota" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="localizacao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="longitude" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="latitude" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servico_Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_servico" Type="int" Nullable="false" />
+    <Property Name="id_categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_conta" Type="int" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="tiponumero" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipousuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nickname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Avaliacao_AvalicacaoItem">
+    <End Role="AvaliacaoItem" Type="Self.AvaliacaoItem" Multiplicity="1" />
+    <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AvaliacaoItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avaliacao">
+        <PropertyRef Name="id_avaliacaoitem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Avaliacao_Servico">
+    <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+    <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avaliacao">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoItem_ItemAvaliacaoCategoria">
+    <End Role="ItemAvaliacaoCategoria" Type="Self.ItemAvaliacaoCategoria" Multiplicity="1" />
+    <End Role="AvaliacaoItem" Type="Self.AvaliacaoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemAvaliacaoCategoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AvaliacaoItem">
+        <PropertyRef Name="id_itemavaliacaocategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoItem_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="AvaliacaoItem" Type="Self.AvaliacaoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AvaliacaoItem">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_Conta">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="id_conta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemavaliacao_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="ItemAvaliacaoCategoria" Type="Self.ItemAvaliacaoCategoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ItemAvaliacaoCategoria">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PF_Conta">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+    <End Role="PF" Type="Self.PF" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PF">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PJ_Conta">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+    <End Role="PJ" Type="Self.PJ" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PJ">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecomedacaoUsuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="RecomendacaoUsuario" Type="Self.RecomendacaoUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RecomendacaoUsuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Categoria_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Servico_Categoria" Type="Self.Servico_Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Servico_Categoria">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Categoria_Servico">
+    <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+    <End Role="Servico_Categoria" Type="Self.Servico_Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Servico_Categoria">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servico_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Servico" Type="Self.Servico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Servico">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Servico">
+    <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+    <End Role="Promocao" Type="Self.Promocao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Promocao">
+        <PropertyRef Name="id_servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefone_Conta">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+    <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefone">
+        <PropertyRef Name="id_conta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Conta">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProcuraServicosWebApiModelStoreContainer">
+    <EntitySet Name="Avaliacao" EntityType="Self.Avaliacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AvaliacaoItem" EntityType="Self.AvaliacaoItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conta" EntityType="Self.Conta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemAvaliacaoCategoria" EntityType="Self.ItemAvaliacaoCategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PF" EntityType="Self.PF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PJ" EntityType="Self.PJ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promocao" EntityType="Self.Promocao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecomendacaoUsuario" EntityType="Self.RecomendacaoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servico" EntityType="Self.Servico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servico_Categoria" EntityType="Self.Servico_Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Avaliacao_AvalicacaoItem" Association="Self.FK_Avaliacao_AvalicacaoItem">
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+      <End Role="Avaliacao" EntitySet="Avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Avaliacao_Servico" Association="Self.FK_Avaliacao_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Avaliacao" EntitySet="Avaliacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoItem_ItemAvaliacaoCategoria" Association="Self.FK_AvaliacaoItem_ItemAvaliacaoCategoria">
+      <End Role="ItemAvaliacaoCategoria" EntitySet="ItemAvaliacaoCategoria" />
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoItem_Usuario" Association="Self.FK_AvaliacaoItem_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="AvaliacaoItem" EntitySet="AvaliacaoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_Conta" Association="Self.FK_Endereco_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemavaliacao_Categoria" Association="Self.FK_itemavaliacao_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="ItemAvaliacaoCategoria" EntitySet="ItemAvaliacaoCategoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PF_Conta" Association="Self.FK_PF_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="PF" EntitySet="PF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PJ_Conta" Association="Self.FK_PJ_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="PJ" EntitySet="PJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecomedacaoUsuario_Usuario" Association="Self.FK_RecomedacaoUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="RecomendacaoUsuario" EntitySet="RecomendacaoUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Categoria_Categoria" Association="Self.FK_Servico_Categoria_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Servico_Categoria" EntitySet="Servico_Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Categoria_Servico" Association="Self.FK_Servico_Categoria_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Servico_Categoria" EntitySet="Servico_Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servico_Usuario" Association="Self.FK_Servico_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Servico" EntitySet="Servico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Servico" Association="Self.FK_Table_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Promocao" EntitySet="Promocao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefone_Conta" Association="Self.FK_Telefone_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Telefone" EntitySet="Telefone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Conta" Association="Self.FK_Usuario_Conta">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

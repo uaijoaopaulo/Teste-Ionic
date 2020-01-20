@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProcuraServicosWebApiModelStoreContainer" CdmEntityContainer="DataModel">
+    <EntitySetMapping Name="Avaliacao">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Avaliacao">
+        <MappingFragment StoreEntitySet="Avaliacao">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_servico" ColumnName="id_servico" />
+          <ScalarProperty Name="id_avaliacaoitem" ColumnName="id_avaliacaoitem" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AvaliacaoItem">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.AvaliacaoItem">
+        <MappingFragment StoreEntitySet="AvaliacaoItem">
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_itemavaliacaocategoria" ColumnName="id_itemavaliacaocategoria" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conta">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Conta">
+        <MappingFragment StoreEntitySet="Conta">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="rua" ColumnName="rua" />
+          <ScalarProperty Name="id_conta" ColumnName="id_conta" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemAvaliacaoCategoria">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.ItemAvaliacaoCategoria">
+        <MappingFragment StoreEntitySet="ItemAvaliacaoCategoria">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PF">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.PF">
+        <MappingFragment StoreEntitySet="PF">
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PJ">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.PJ">
+        <MappingFragment StoreEntitySet="PJ">
+          <ScalarProperty Name="tipoempresa" ColumnName="tipoempresa" />
+          <ScalarProperty Name="razaosocial" ColumnName="razaosocial" />
+          <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promocao">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Promocao">
+        <MappingFragment StoreEntitySet="Promocao">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="datafim" ColumnName="datafim" />
+          <ScalarProperty Name="datainicio" ColumnName="datainicio" />
+          <ScalarProperty Name="id_servico" ColumnName="id_servico" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecomendacaoUsuario">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.RecomendacaoUsuario">
+        <MappingFragment StoreEntitySet="RecomendacaoUsuario">
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servico_Categoria">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Servico_Categoria">
+        <MappingFragment StoreEntitySet="Servico_Categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_servico" ColumnName="id_servico" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefone">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Telefone">
+        <MappingFragment StoreEntitySet="Telefone">
+          <ScalarProperty Name="tiponumero" ColumnName="tiponumero" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="id_conta" ColumnName="id_conta" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="tipousuario" ColumnName="tipousuario" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servico">
+      <EntityTypeMapping TypeName="ProcuraServicosWebApi.Model.Servico">
+        <MappingFragment StoreEntitySet="Servico">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
